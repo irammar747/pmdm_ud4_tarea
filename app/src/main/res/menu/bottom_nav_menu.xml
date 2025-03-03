@@ -10,5 +10,5 @@
     <item
         android:id="@+id/nav_collectibles"
         android:icon="@drawable/ic_collectibles"
-        android:title="@string/collectibles" />
+        android:title="@string/collectibles"/>
 </menu>

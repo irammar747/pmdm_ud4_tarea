@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/purpleTransparent"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/welcome_guide"
+    android:padding="30sp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenido"
+        android:id="@+id/tv_bienvenido"
+        style="@style/TextoGuiaEncabezado"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_preparate"
+        />
+
+    <TextView
+        android:id="@+id/tv_preparate"
+        style="@style/TextoGuia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/preparate"
+        app:layout_constraintBottom_toTopOf="@id/iv_spyro_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bienvenido" />
+
+    <ImageView
+        android:layout_height="100sp"
+        android:layout_width="match_parent"
+        android:contentDescription="@string/logo_spyro"
+        android:src="@drawable/spyro_letras"
+        android:id="@+id/iv_spyro_logo"
+        app:layout_constraintTop_toBottomOf="@id/tv_preparate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_aprenderas"
+         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/aprenderas"
+        android:id="@+id/tv_aprenderas"
+        style="@style/TextoGuia"
+        app:layout_constraintTop_toBottomOf="@id/iv_spyro_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_listo"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/listo"
+        android:id="@+id/tv_listo"
+        android:textAlignment="center"
+        style="@style/TextoGuia"
+        app:layout_constraintTop_toBottomOf="@id/tv_aprenderas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_pulsa"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pulsa"
+        android:textAlignment="center"
+        android:id="@+id/tv_pulsa"
+        style="@style/TextoGuia"
+        app:layout_constraintTop_toBottomOf="@id/tv_listo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_spyro_fly"
+        />
+    <ImageView
+        android:layout_height="100sp"
+        android:layout_width="match_parent"
+        android:contentDescription="@string/imagen_spyro"
+        android:src="@drawable/spyro_fly"
+        android:id="@+id/iv_spyro_fly"
+        app:layout_constraintTop_toBottomOf="@id/tv_pulsa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_comenzar"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:id="@+id/btn_comenzar"
+        app:layout_constraintTop_toBottomOf="@id/iv_spyro_fly"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <ImageButton
+            android:id="@+id/btn_comenzar_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/comenzar"
+            android:scaleType="fitCenter"
+            android:src="@drawable/joyas" />
+
+
+        <TextView
+            android:id="@+id/btn_comenzar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/comenzar"
+            style="@style/TextoGuia"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

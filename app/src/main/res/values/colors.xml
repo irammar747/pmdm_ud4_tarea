@@ -2,9 +2,16 @@
 <resources>
     <color name="pink">#c55e97</color>
     <color name="purple">#9c35ba</color>
+    <color name="purpleTransparent">#CB9C35BA</color>
+    <color name="purpleTransparent2">#449c35ba</color>
+    <color name="pinkorange">#d28077</color>
     <color name="orange">#e7a56e</color>
+    <color name="orangeTransparent">#99e7a56e</color>
     <color name="yellow">#fbdf6a</color>
+    <color name="yellowTransparent">#E4FBDF6A</color>
+    <color name="yellowTransparent2">#ABFBDF6A</color>
     <color name="yellow2">#88ffffff</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="text_highlight">#FFD700</color>
 </resources>

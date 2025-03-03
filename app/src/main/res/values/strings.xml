@@ -6,4 +6,26 @@
     <string name="title_about">Acerca de</string>
     <string name="text_about">Aplicación desarrollada por \n <b>Inma Ramírez Marín.</b></string>
     <string name="accept">Aceptar</string>
+    <string name="bienvenido">BIENVENIDO</string>
+    <string name="preparate">Prepárate para explorar el mundo mágico de esta aplicación inspirada en</string>
+    <string name="aprenderas">Aquí aprenderás a navegar por pestañas llenas de dragones, mundos fascinantes y montones de tesoros brillantes.</string>
+    <string name="listo">¿Listo para empezar?</string>
+    <string name="pulsa">Pulsa \"Comenzar\" y deja que Spyro te lleve volando a través de esta guía interactiva.</string>
+    <string name="comenzar">COMENZAR</string>
+    <string name="logo_spyro">logo spyro</string>
+    <string name="imagen_spyro">imagen spyro</string>
+    <string name="saltar_gu_a">Saltar Guía</string>
+    <string name="saltar_guia">Saltar Guía\n</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="marcador">marcador</string>
+    <string name="bocadillo_personajes">Pulsa sobre el icono Personajes para acceder a los personajes del mundo de Spyro</string>
+    <string name="bocadillo_mundos">En esta pestaña tendrás acceso a todos los mundos disponibles</string>
+    <string name="bocadillo_collections">Aquí podrás ver todos los coleccionables</string>
+    <string name="bocadillo_pulsa_mundo">Para continuar con la aventura, pulsa sobre el icono Mundos del menú inferior</string>
+    <string name="bocadillo_personajes2">Aquí podrás ver todos los personajes disponibles</string>
+    <string name="bocadillo_colecciones2">En esta pestaña podrás acceder a todos los objetos coleccionables</string>
+    <string name="bocadillo_info">Pulsa sobre el icono de información si quieres tener más información sobre la aplicación</string>
+    <string name="fin">FIN</string>
+    <string name="iniciar">Iniciar Aplicación</string>
+    <string name="guia_finalizada">Una vez finalizados todos los pasos de la guía te animo a pulsar sobre \"Iniciar Aplicación\" para comenzar a disfrutar del mundo de Spyro</string>
 </resources>
