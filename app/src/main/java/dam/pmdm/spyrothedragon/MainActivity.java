@@ -4,7 +4,12 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.media.SoundPool;
 import android.os.Bundle;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.TransitionManager;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
+import android.transition.TransitionSet;
 
 import java.util.Objects;
 
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     destination.getId() != R.id.navigation_collectibles);
         });
 
-        //Preferences.setGuideCompleted(this, false);
+        Preferences.setGuideCompleted(this, false);
         if(!Preferences.isGuideCompleted(this)) {
             showGuide();
         }
@@ -84,6 +90,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showStep(int currentStep) {
+        ViewGroup root = binding.guideContainer;
+
+        TransitionSet transitionSet = new TransitionSet();
+        transitionSet.addTransition(new Fade())  // Desvanecimiento
+                .addTransition(new Slide(Gravity.END)) // Deslizamiento
+                .setOrdering(TransitionSet.ORDERING_TOGETHER); // Ambas ocurren a la vez
+
+        TransitionManager.beginDelayedTransition(root, transitionSet);
+
+        root.removeAllViews();
+        addNewStep(currentStep);
+    }
+
+    private void addNewStep(int currentStep) {
         View marcador;
 
         binding.guideContainer.removeAllViews();
@@ -324,12 +344,31 @@ public class MainActivity extends AppCompatActivity {
     private void skipGuide(View view) {
         Preferences.setGuideCompleted(this, true);
         binding.guideContainer.setVisibility(View.GONE);
+        binding.navView.setSelectedItemId(R.id.nav_characters);
+        navController.navigate(R.id.navigation_characters);
     }
 
     private void nextStep(View view) {
+        reproducirSonido();
         currentStep++;
         showStep(currentStep);
     }
+
+    private void reproducirSonido() {
+        SoundPool soundPool = new SoundPool.Builder().setMaxStreams(1).build();
+        int soundId = soundPool.load(this, R.raw.sonido_gema, 1);
+
+        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                if(status == 0){
+                    soundPool.play(soundId, 1, 1, 0, 0, 1);
+                }
+            }
+        });
+
+    }
+
 
 
     private boolean selectedBottomMenu(@NonNull MenuItem menuItem) {

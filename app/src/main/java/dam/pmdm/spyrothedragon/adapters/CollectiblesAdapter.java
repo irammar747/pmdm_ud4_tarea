@@ -12,18 +12,25 @@ import java.util.List;
 
 import dam.pmdm.spyrothedragon.R;
 import dam.pmdm.spyrothedragon.models.Collectible;
+import dam.pmdm.spyrothedragon.ui.CollectiblesFragment;
+
 
 public class CollectiblesAdapter extends RecyclerView.Adapter<CollectiblesAdapter.CollectiblesViewHolder> {
 
     private List<Collectible> list;
+    private int toques = 0;
+    private CollectiblesFragment fragment;
 
-    public CollectiblesAdapter(List<Collectible> collectibleList) {
+    public CollectiblesAdapter(List<Collectible> collectibleList, CollectiblesFragment fragment) {
+
         this.list = collectibleList;
+        this.fragment = fragment;
     }
 
     @Override
     public CollectiblesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
+
         return new CollectiblesViewHolder(view);
     }
 
@@ -35,6 +42,22 @@ public class CollectiblesAdapter extends RecyclerView.Adapter<CollectiblesAdapte
         // Cargar la imagen (simulado con un recurso drawable)
         int imageResId = holder.itemView.getContext().getResources().getIdentifier(collectible.getImage(), "drawable", holder.itemView.getContext().getPackageName());
         holder.imageImageView.setImageResource(imageResId);
+
+        holder.imageImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(collectible.getImage().equals("gems")){
+                    toques++;
+                    if(toques == 4){
+                        toques = 0;
+                        fragment.activateEasterEgg();
+                    }else{
+                        //Reseteamos el contador si ha pasado más de 1 seg desde el último toque y no ha llegado a 4
+                        v.postDelayed(() -> toques = 0, 1000);
+                    }
+                }
+            }
+        });
     }
 
     @Override
